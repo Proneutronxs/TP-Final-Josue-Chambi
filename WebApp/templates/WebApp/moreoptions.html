@@ -1,0 +1,54 @@
+{% extends "WebApp/index.html" %}
+
+{% load static %}
+
+
+{% block content %}
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <div class="text-homeimage-new">
+                        <div style="font-size: 20px; color: #ffffffde; background-color: rgba(0, 0, 0, 0.384); border-radius: 25px; border: 1px solid #05cdfd">
+                            <div class="maintext-image" data-scrollreveal="enter top over 1.5s after 0.1s" >
+                                <h4>Opciones y listado de Productos</h4>                                
+                            </div>   
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div align="center"  style=" margin-left: 15px; margin-right: 15px; font-size:15px; color: #ffffff; background-color: rgba(0, 0, 0, 0.664); border-radius: 25px; border: 1px solid #05cdfd">
+            <ul>
+                <table class="table" style="color: #ffffffde;">
+                    <thead>
+                        <tr>
+                        <th scope="col">Producto</th>
+                        <th scope="col">Ver</th>
+                        <th scope="col">Actualizar</th>
+                        <th scope="col">Borrar</th>
+                        </tr>
+                    </thead>
+                    <tbody>   
+                        {% for p in object_list %}
+                            <tr>
+                                <td><b>{{p.name}}</b></td>
+                                <td><b><a style="color: rgba(0, 128, 0, 0.699);" href="{% url 'detail' p.id %}">Ver</a></b></td>
+                                <td><b><a style="color: rgb(152, 179, 209);" href="{% url 'update' p.id %}">Actualizar</a></b></td>
+                                <td><b><a style="color: rgba(255, 0, 0, 0.521);" href="{% url 'delete' p.id %}">Borrar</a></b></td>
+                            </tr>
+                        {% endfor %}
+                    </tbody> 
+                </table>
+            </ul>
+            <div style="margin-bottom: 18px;">
+                <u><b><a style="font-size: 10; color: rgb(152, 179, 209);" href="{% url 'new' %}">AGREGAR UN NUEVO PRODUCTO</a></b></u>
+            </div>
+            <div>
+                <u><b><a style="font-size: 10; color: rgba(55, 108, 187, 0.726);" href="{% url 'editprofile' %}">EDITAR PERFIL</a></b></u>
+            </div>  
+            <div>
+                <u><b><a style="font-size: 10; color: rgba(55, 108, 187, 0.726);" href="{% url 'logout' %}">CERRAR SESIÓN</a></b></u>
+            </div> 
+        </div>
+        
+{% endblock %}

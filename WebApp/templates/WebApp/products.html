@@ -1,0 +1,79 @@
+{% extends "WebApp/index.html" %}
+
+{% load static %}
+
+
+{% block content %}
+
+<header>
+    <div class="container">
+		<div class="row">
+			<div class="col-md-12 text-center">
+				<div class="text-pageheader">
+					<div style="font-size: 22px; color: #ffffffde; background-color: rgba(0, 0, 0, 0.384); border-radius: 25px; border: 1px solid #05cdfd">
+						Productos
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</header>
+
+<!-- CONTENT =============================-->
+<section class="item content">
+    <div class="container toparea" style="text-align: center;">
+        <div class="underlined-title" style="text-align: center;">
+            <div class="editContent" style="text-align: center;">
+                <h1 class="text-center latestitems">NUESTROS PRODUCTOS</h1>
+            </div>
+            <div class="wow-hr type_short">
+                <span class="wow-hr-h">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                </span>
+            </div>
+        </div>
+        {% if paqueteshtml %}
+            {% for h in paqueteshtml %}
+            <div class="row" style="text-align: center;">
+                <div class="col-md-4"" style="text-align: center;">
+                    <div class="productbox text-center" style="text-align: center;">
+                        <div class="fadeshop" style="text-align: center;">
+                            <div class="captionshop text-center" style="display: none;">
+                                <h3>{{h.name}}</h3>
+                                <p>
+                                    Versión: {{h.version}} 
+                                </p>
+                                <p>
+                                    Licencia: {{h.licencia}}
+                                </p>
+                                <p>
+                                    {{h.documentacion}}
+                                </p>
+                                <!--<p>
+                                    <a href="#" class="learn-more detailslearn"><i class="fa fa-link"></i> Details</a>
+                                </p>-->
+                            </div>
+                            <span class="maxproduct"><img  src="{{h.imagen}}" aling="center" alt=""></span>
+                        </div>
+                        <div class="product-details"  style="color: #ffffffde;">
+                            <a href="#">
+                            <h1 style="color: #ffffffde;"">Nombre: {{h.name}}</h1>
+                            </a>
+                            <span class="price">
+                            <span class="edd_price">Precio: {{h.tamaño}}</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.productbox -->
+            </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+    </div>
+    </section>
+    
+
+{% endblock %}

@@ -1,0 +1,59 @@
+{% extends "WebApp/index.html" %}
+
+{% load static %}
+
+
+{% block content %}
+
+<head>
+    <div class="container">
+		<div class="row">
+			<div class="col-md-12 text-center">
+				<div class="text-pageheader">
+					<div style="font-size: 22px; color: #ffffffde; background-color: rgba(0, 0, 0, 0.384); border-radius: 25px; border: 1px solid #05cdfd">
+						Contacto
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</head>
+
+<section class="item content">
+    <div class="container toparea">
+        <div class="underlined-title">
+            <div class="editContent">
+                <h1 class="text-center latestitems">Puedes Contactarnos</h1>
+            </div>
+            <div class="wow-hr type_short">
+                <span class="wow-hr-h">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                </span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <div class="done">
+                    <div class="alert alert-success">
+                        <button type="button" class="close" data-dismiss="alert">×</button>
+                        Your message has been sent. Thank you!
+                    </div>
+                </div>
+                <form method="post" action="contact.php" id="contactform">
+                    <div class="form">
+                        <input type="text" name="name" placeholder="Tu Nombre *">
+                        <input type="text" name="email" placeholder="Tu Email *">
+                        <textarea name="comment" rows="7" placeholder="Escribe tu mensaje *"></textarea>
+                        <input type="" id="submit" class="clearfix btn" value="Envíar">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    </div>
+</section>
+    
+
+{% endblock %}

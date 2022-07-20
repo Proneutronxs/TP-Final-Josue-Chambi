@@ -1,0 +1,104 @@
+{% extends "WebApp/index.html" %}
+
+{% load static %}
+
+
+{% block content %}
+
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <div class="text-pageheader">
+                        <div class="subtext-image" data-scrollreveal="enter bottom over 1.7s after 0.0s">
+                            Búsqueda de un Producto
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="item content">
+        <div class="container toparea" style="background-color: rgba(0, 0, 0, 0.384);">
+            <div class="underlined-title">
+                <div>
+                    <table class="table" style="color: #ffffffde;">
+                        <thead>
+                            <tr>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Código</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% if codigoshtml %}
+                                {% for i in codigoshtml %}
+                                    <tr>
+                                    <b><td>{{i.name}}</td></b>
+                                    <b><td>{{i.numero}}</td></b>
+                                    </tr>
+                                {% endfor %}
+                            {% endif %}
+                        </tbody>
+                    </table>
+                </div>
+                <form style="text-align: center; margin-bottom: 20px" action="" method="GET">{% csrf_token %}
+                    <div style="text-align: center;">
+                        <b style=" margin-bottom: 10px; text-align: center; color: #ffffffde;">Ingrese el Código del Producto:</b>
+                        <input type="number" name="producto">
+                        <input style="text-align: center;" type="submit"  value="BUSCAR">
+                        <!--<a type="submit" class="btn btn-buynow">BUSCAR</a>-->
+                    </div>
+                </form>
+                <div class="editContent">
+        {% if busqueda %}
+            {% for j in busqueda %}
+                    <br>
+                    <h1 class="text-center latestitems">{{j.name}}</h1>
+                                           
+                </div>
+                <div class="wow-hr type_short">
+                    <span class="wow-hr-h">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    </span>
+                </div>
+                
+            </div>
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="productbox" style="text-align: center; background-color: rgba(0, 0, 0, 0.384);">
+                        <img width="200" src="{{j.imagen}}" alt="">
+                        <div class="clearfix">
+                        </div>
+                        <!--<br/>
+                        <div class="product-details text-left" style="color: #ffffffde;">
+                            <p>
+                                {{j.documentacion}}
+                            </p>
+                        </div>-->
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    
+                    
+                    <div class="properties-box" style="color: #ffffffde;">
+                        <ul class="unstyle">
+                            <li><b class="propertyname">Version:</b> {{j.version}}</li>
+                            <li><b class="propertyname">Número:</b> {{j.numero}}</li>
+                            <li><b class="propertyname">License:</b> {{j.licencia}}</li>
+                            <li><b class="propertyname">Fecha:</b> {{j.fecha}}</li>
+                            <li><b class="propertyname">Precio:</b> {{j.tamaño}}</li>
+                            <li><b class="propertyname">Historia:</b> {{j.documentacion}}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        {% endif %} 
+        
+        </div>
+    </section>
+
+{% endblock %}

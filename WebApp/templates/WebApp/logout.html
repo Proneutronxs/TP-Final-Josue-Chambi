@@ -1,0 +1,23 @@
+{% extends "WebApp/index.html" %}
+
+{% load static %}
+
+
+{% block content %}
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <div class="text-homeimage">
+                        <div style="font-size: 30px; color: #ffffffde; background-color: rgba(0, 0, 0, 0.384); border-radius: 25px; border: 1px solid #05cdfd">
+                            <div class="maintext-image" data-scrollreveal="enter top over 1.5s after 0.1s" >
+                                
+                                    <h2>...Regresa Pronto...</h2>
+                                
+                                <li style="font-size: 10;" ><a style="font-size: 10;" href="{% url 'inicio' %}">Volver al Inicio</a></li>
+                            </div>   
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends "WebApp/index.html" %}
+
+{% load static %}
+
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <div class="text-homeimage-new">
+                <div style="font-size: 20px; color: #ffffffde; background-color: rgba(0, 0, 0, 0.384); border-radius: 25px; border: 1px solid #05cdfd">
+                    <div class="maintext-image" data-scrollreveal="enter top over 1.5s after 0.1s" >
+                        <h4>Iniciar Sesión</h4>
+                    </div>   
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div align="center"  style=" margin-left: 15px; margin-right: 15px; font-size:15px; color: #eeeeee; background-color: rgba(0, 0, 0, 0.384); border-radius: 25px; border: 1px solid #05cdfd">
+    <form method="POST">{% csrf_token %}
+        <div style=" color:black; margin-top: 58px; text-align: center; ">
+            {{form.as_p}}
+        </div>
+        <div>
+            <b style="color: red;">{{mensaje}}</b>
+        </div>        
+        <button type="submit" style="background-color: black; margin-top: 15px; margin-bottom: 20px;">Iniciar Sesión</button>
+    </form>
+    <div style=" margin-bottom: 15px; margin-top: 5px;">
+        <b><a style="font-size: 10; color: rgb(152, 179, 209);" href="{% url 'singup' %}">REGISTRARSE</a></b>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+	{% load static %}
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="generator" content="">
+	<link href="{%static 'WebApp/css/bootstrap.min.css' %}" rel="stylesheet">
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+	<link href="{%static 'WebApp/css/style.css' %}" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Dosis:200,300,400,500,600,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Roboto:200,300,400,500,600,700" rel="stylesheet">
+</head>
+<body>
+
+
+<!-- HEADER =============================-->
+<header class="item header margin-top-0">
+<div class="wrapper">
+	<nav role="navigation" class="navbar navbar-white navbar-embossed navbar-lg navbar-fixed-top">
+	<div class="container">
+		<div class="navbar-header" style="text-align: center;">
+			<button data-target="#navbar-collapse-02" data-toggle="collapse" class="navbar-toggle" type="button">
+			<i class="fa fa-bars"></i>
+			<span class="sr-only">Toggle navigation</span>
+			</button>
+			<a href="{% url 'inicio' %}" class="navbar-brand brand" style="text-align: center;"> PRONEUTRONXS </a>
+		</div>
+		<div id="navbar-collapse-02" class="collapse navbar-collapse">
+			<ul class="nav navbar-nav navbar-right">
+				<li class="propClone"><a href="{% url 'inicio' %}">Inicio</a></li>
+				<li class="propClone"><a href="{% url 'about' %}">Nosotros</a></li>
+				<li class="propClone"><a href="{% url 'products' %}">Productos</a></li>
+				<li class="propClone"><a href="{% url 'contact' %}">Contacto</a></li>
+				{% if not request.user.is_authenticated %}
+					<li class="propClone"><a href="{% url 'login' %}">LogIn</a></li>
+				{% else %}
+				<li class="propClone"><a href="{% url 'user' %}">{{user}}</a></li>
+					{% if check != None %}
+						<li><img src="{{url}}" style="height: 30px; width:30px; margin-top: 20px; "></li>
+					{% endif %}
+				{% endif %}
+				<li><a href="{% url 'search' %}"> <img src="{% static 'WebApp/images/lupa.png' %}" width="20"> </a></li>
+			</ul>
+		</div>
+	</div>
+	</nav>
+	{% block content %}
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 text-center">
+				<div class="text-homeimage">
+					<div class="maintext-image" data-scrollreveal="enter top over 1.5s after 0.1s">
+						We are Legion
+					</div>
+					<div class="subtext-image" data-scrollreveal="enter bottom over 1.7s after 0.3s">
+						Expect Us
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	{% endblock %}
+</div>
+</header>
+
+<!-- FOOTER =============================-->
+<div class="footer text-center" >
+	<div class="container">
+		<div class="row">
+			
+			<p>
+				 &copy; 2022 www.proneutronxs.com.ar<br/>
+				App Web by <a href="#nada">Proneutronxs</a>
+			</p>
+		</div>
+	</div>
+</div>
+
+<!-- SCRIPTS =============================-->
+<script src="{%static 'WebApp/js/jquery-.js' %}"></script>
+<script src="{%static 'WebApp/js/bootstrap.min.js' %}"></script>
+<script src="{%static 'WebApp/js/anim.js' %}"></script>
+<script>
+//----HOVER CAPTION---//	  
+jQuery(document).ready(function ($) {
+	$('.fadeshop').hover(
+		function(){
+			$(this).find('.captionshop').fadeIn(150);
+		},
+		function(){
+			$(this).find('.captionshop').fadeOut(150);
+		}
+	);
+});
+</script>
+	
+</body>
+</html>
